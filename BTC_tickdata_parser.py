@@ -1,5 +1,6 @@
 #this Python code aims at translating http://api.bitcoincharts.com/v1/csv/ free historical tick data
 #in the following code, we will consider the tick data to be coinbase BTCUSD
+#the output sample can be found as .csv in the same repository
 
 #libs to include
 import pandas as pd
