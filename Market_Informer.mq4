@@ -1,5 +1,4 @@
-/*         
-        .=====================================.
+/*      .=====================================.
        /                                       \
       .               Market Info               .
       |               by Edorenta               |
@@ -11,12 +10,10 @@
 #property link "https://github.com/Edorenta"
 #property indicator_chart_window
 
-/*
-      .-----------------------.
+/*    .-----------------------.
       |    EXTERNAL INPUTS    |
       '-----------------------'
 */
-
 extern bool ShowMarketInfo = true;
 extern bool ShowAccountStatus = true;
 extern string myobj = "azerty";           // random string to give unique name to the objects
@@ -25,12 +22,10 @@ extern color textcolor = White;
 extern int startbarno = 1;
 extern int spacebetweenlines = 5;
 
-/*
-      .-----------------------.
+/*    .-----------------------.
       |       STATICS         |
       '-----------------------'
 */
-
 int counter = 0;
 double nextlinelevel = 0;
 double ModeLow;
@@ -54,12 +49,10 @@ double ModeTradeAllowed;
 double ModeMinLot, ModeMaxLot;
 double ModeLotStep;
 
-/*
-      .-----------------------.
+/*    .-----------------------.
       |         INIT          |
       '-----------------------'
 */
-
 int init()
 {
    AccountStatus();  
@@ -67,12 +60,10 @@ int init()
    return(0);
 }
 
-/*
-      .-----------------------.
+/*    .-----------------------.
       |        DEINIT         |
       '-----------------------'
 */
-
 int deinit()
 {
    for (int i=counter;i>0;i--)
@@ -81,12 +72,10 @@ int deinit()
    return(0);
 }
 
-/*
-      .-----------------------.
+/*    .-----------------------.
       |        PRINT          |
       '-----------------------'
 */
-
 int start()
 {
    int counted_bars=IndicatorCounted();
@@ -122,43 +111,32 @@ int AccountStatus()
    double marginRequired  = MarketInfo(Symbol(), MODE_MARGINREQUIRED);
    double lotValue        = Close[0]/tickSize * tickValue;
    double leverage        = lotValue/marginRequired;
-   
-       Print ("Account Balance:", AccountBalance());
+
+       Print ("Intrument Leverage: (1:", DoubleToStr(MathRound(leverage), 0) +")");
+       Print ("Account Leverage:", AccountLeverage());
        Print ("Account Company:", AccountCompany());
        Print ("Account Credit:", AccountCredit());
        Print ("Account Currency:", AccountCurrency());
-       Print ("Account Equity:", AccountEquity());
        Print ("Account FreeMargin:", AccountFreeMargin());
-       Print ("Account Leverage:", AccountLeverage());
        Print ("Account Margin:", AccountMargin());
        Print ("Account Name:", AccountName());
        Print ("Account Number:", AccountNumber());
-       Print ("Account Profit:", AccountProfit());
-       Print ("Intrument Leverage: (1:", DoubleToStr(MathRound(leverage), 0) +")");
-       
-       PrintOnGraph ("Account Balance: "+ AccountBalance());
+
+       PrintOnGraph ("Account Leverage: "+ AccountLeverage());
+       PrintOnGraph ("Intrument Leverage: (1:"+ DoubleToStr(MathRound(leverage), 0) +")");
        PrintOnGraph ("Account Company: "+ AccountCompany());
        PrintOnGraph ("Account Credit: "+ AccountCredit());
        PrintOnGraph ("Account Currency: "+ AccountCurrency());
-       PrintOnGraph ("Account Equity: "+ AccountEquity());
        PrintOnGraph ("Account FreeMargin: "+ AccountFreeMargin());
-       PrintOnGraph ("Account Leverage: "+ AccountLeverage());
        PrintOnGraph ("Account Margin: "+ AccountMargin());
        PrintOnGraph ("Account Name: "+ AccountName());
        PrintOnGraph ("Account Number: "+ AccountNumber());
-       PrintOnGraph ("Account Profit: "+ AccountProfit());
-       PrintOnGraph ("Intrument Leverage: (1:"+ DoubleToStr(MathRound(leverage), 0) +")");
    }    
    return ( 0 );
 }
 
 int GetMarketInfo()
 {
-   ModeLow = MarketInfo(Symbol(), MODE_LOW);
-   ModeHigh = MarketInfo(Symbol(), MODE_HIGH);
-   ModeTime = MarketInfo(Symbol(), MODE_TIME);
-   ModeBid = MarketInfo(Symbol(), MODE_BID);
-   ModeAsk = MarketInfo(Symbol(), MODE_ASK);
    ModePoint = MarketInfo(Symbol(), MODE_POINT);
    ModeDigits = MarketInfo(Symbol(), MODE_DIGITS);
    ModeSpread = MarketInfo(Symbol(), MODE_SPREAD);
@@ -178,11 +156,6 @@ int GetMarketInfo()
 
    if ( ShowMarketInfo == True )
    {
-       Print("Mode Low:",ModeLow);
-       Print("Mode High:",ModeHigh);
-       Print("Mode Time:",ModeTime);
-       Print("Mode Bid:",ModeBid);
-       Print("Mode Ask:",ModeAsk);
        Print("Mode Point:",ModePoint);
        Print("Mode Digits:",ModeDigits);
        Print("Mode Spread:",ModeSpread);
@@ -199,12 +172,6 @@ int GetMarketInfo()
        Print("Mode MinLot:",ModeMinLot);
        Print("Mode LotStep:",ModeLotStep);
        
-       
-       PrintOnGraph("Mode Low: "+ModeLow);
-       PrintOnGraph("Mode High: "+ModeHigh);
-       PrintOnGraph("Mode Time: "+ModeTime);
-       PrintOnGraph("Mode Bid: "+ModeBid);
-       PrintOnGraph("Mode Ask: "+ModeAsk);
        PrintOnGraph("Mode Point: "+ModePoint);
        PrintOnGraph("Mode Digits: "+ModeDigits);
        PrintOnGraph("Mode Spread: "+ModeSpread);
@@ -219,8 +186,7 @@ int GetMarketInfo()
        PrintOnGraph("Mode Expiration: "+ModeExpiration);
        PrintOnGraph("Mode TradeAllowed: "+ModeTradeAllowed);
        PrintOnGraph("Mode MinLot: "+ModeMinLot);
-       PrintOnGraph("Mode LotStep: "+ModeLotStep);
-       
+       PrintOnGraph("Mode LotStep: "+ModeLotStep);  
    }
    return (0);
 }
