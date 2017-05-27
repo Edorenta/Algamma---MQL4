@@ -1,12 +1,9 @@
 /*      .=====================================.
-       /                                       \
-      .               Market Info               .
+       /              Market Info              \
       |               by Edorenta               |
-      '                 Algamma                 '
-       \                                       /
+       \                Algamma                /
         '====================================='
 */
-
 #property link "https://github.com/Edorenta"
 #property indicator_chart_window
 
