@@ -76,13 +76,13 @@ def cvar(returns, alpha):
       |    RR II: DRAWDOWN    |
       '-----------------------'
 '''
-def dd(returns, tau): #local max drawdown
-    #Returns the draw-down given time pRpiod tau
+def dd(returns, ti): #local max drawdown
+    #Returns the draw-down given time pRpiod ti
     values = prices(returns, 100)
     pos = len(values) - 1
-    pre = pos - tau
+    pre = pos - ti
     drawdown = float('+inf')
-    #Find the maximum drawdown given tau
+    #Find the maximum drawdown given ti
     while pre >= 0:
         dd_i = (values[pos] / values[pre]) - 1
         if dd_i < drawdown:
@@ -92,7 +92,7 @@ def dd(returns, tau): #local max drawdown
     return abs(drawdown)
 
 def max_dd(returns):
-    #Returns the maximum draw-down for any tau in (0, T) whRpe T is the length of the return sRpies
+    #Returns the maximum draw-down for any ti in (0, T) where T is the length of the return sRpies
     max_DD = float('-inf')
     for i in range(0, len(returns)):
         drawdown_i = dd(returns, i)
