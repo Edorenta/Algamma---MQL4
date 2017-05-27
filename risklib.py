@@ -39,10 +39,6 @@ def higher_pm(returns, threshold, order):
     #Return the sum of the different to the power of order
     return np.sum(diff ** order) / len(returns)
 
-#Sharpe Ratio function - Risk free rate excluded for simplicity
-def annualised_sharpe(returns, N=252):
-    return np.sqrt(N) * (returns.mean() / returns.std())
-
 #Return SDEV function
 def vol(returns):
     #Return volatility of returns
