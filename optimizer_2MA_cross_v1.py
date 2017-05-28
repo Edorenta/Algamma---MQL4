@@ -37,7 +37,7 @@ step_2 = 5          #slover increment for slow MA
 
 import_dir = "data_frame\\historical_data\\"        #root of the historical data .csv
 export_dir = "data_frame\\technical_analysis\\"     #root of the export folder (useless atm)
-file_name = "EURUSD_M5.csv"                         #instrument historical dt ohlc vol to load, format has to be 
+file_name = "EURUSD_M5.csv"                         #instrument historical data, format has to be utc|open|high|low|close or close
 digits = 5                                          #digits of the underlying instrument quote
 spread_pts = 20                                     #broker typical spread in base points (pip/10) not implemented yet
 transaction_cost = 1.5                              #broker transaction cost not implemented yet
