@@ -110,7 +110,7 @@ def prices(returns, base):
 def strat_logic(ma1_p):
     #pandas dataframe to series (i.e. np) to be readable by TA-Lib
     #MA + its slope
-    histo['ma1'] = np.round(ta.SMA(close.values, ma1_p),digits+2)
+    histo['ma1'] = np.round(ta.EMA(close.values, ma1_p),digits+2)
     histo['slope'] = (histo['ma1']-histo['ma1'].shift(1))/histo['ma1']
  
     #set desired number of points as threshold for spread difference (divergence) and create column containing strategy directional stance
