@@ -7,8 +7,8 @@
 '''
 #TREND FOLLOWING STRATEGY: -in this version of my optimizer we will focus on a simple
 #                           yet popular strategy: 2 Moving Average Crossover
-#ALWAYS INVESTED:          -for code execution speed constraints not to make the strategy
-#                           technicaly too complex, hence we will always be invested
+#ALWAYS INVESTED:          -for code execution speed constraints we will not to make the
+#                           strategy technicaly too complex, hence we will always be invested
 #SIMPLE LOGIC:             -if fast MA > slow MA, enter and hold long, else short and hold
 #                           to next signal
 #SHARPE OPTIMIZATION:      -the solver here draws off the main loop 2 key indicators:
